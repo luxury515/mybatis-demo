@@ -11,4 +11,4 @@ logging:
   pattern:
     console: "[%d{HH:mm:ss.SSS}][%-5level][%logger.%method:line%line] - %msg%n"
   level:
-    com.mybatis.crud.demo: debug
+    com.mybatis.crud.demo: info
