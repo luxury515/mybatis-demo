@@ -8,8 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootApplication
 public class SpringCrudMybatisMariadbApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringCrudMybatisMariadbApplication.class, args);
-    }
-
+  public static void main(String[] args) {
+    SpringApplication.run(SpringCrudMybatisMariadbApplication.class, args);
+  }
 }

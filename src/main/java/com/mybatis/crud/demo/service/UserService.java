@@ -15,26 +15,25 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserService {
 
-    private final UserMapper userMapper;
+  private final UserMapper userMapper;
 
-    public List<User> getUserAll() {
-        return userMapper.findAll();
+  public List<User> getUserAll() {
+    return userMapper.findAll();
+  }
+
+  public User getUser(Long userId) {
+    return userMapper.findById(userId);
+  }
+
+  public int createUser(User user) {
+    return userMapper.save(user);
+  }
+
+  public int updateUser(User user) {
+    User findUser = userMapper.findById(user.getId());
+    if (findUser == null) {
+      return -1;
     }
-
-    public User getUser(Long userId) {
-        return userMapper.findById(userId);
-    }
-
-    public int createUser(User user) {
-       return userMapper.save(user);
-    }
-
-    public int updateUser(User user) {
-        User findUser = userMapper.findById(user.getId());
-        if (findUser == null) {
-            return -1;
-        }
-        return userMapper.update(user);
-    }
-
+    return userMapper.update(user);
+  }
 }
