@@ -11,3 +11,6 @@ logging:
     console: "[%d{HH:mm:ss.SSS}][%-5level][%logger.%method:line%line] - %msg%n"
   level:
     com.mybatis.crud.demo: debug
+mybatis:
+  type-aliases-package: com.mybatis.crud.demo.entity
+#  mapper-locations: /com/mybatis/crud/demo/mapper/**/*.xml
