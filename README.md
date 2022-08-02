@@ -3,8 +3,8 @@
 ```
 #POST:
 localhost:8080/api/user/create
-request body: 
 Content-Type : appliction/json
+request body: 
 {
     "username":"cai9",
     "email":"cai9@gmail.com"
@@ -21,7 +21,6 @@ localhost:8080/api/user/find
 localhost:8080/api/user/find/1
 
 ```
-
 * 수정
 ```
 #POST
