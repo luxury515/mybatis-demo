@@ -6,7 +6,6 @@ spring:
     url: jdbc:mariadb://localhost:3306/mybatis_db?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
     password: root
-
 logging:
   pattern:
     console: "[%d{HH:mm:ss.SSS}][%-5level][%logger.%method:line%line] - %msg%n"

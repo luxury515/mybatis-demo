@@ -1,12 +1,9 @@
 package com.mybatis.crud.demo.service;
 
 import com.mybatis.crud.demo.entity.User;
-import com.mybatis.crud.demo.mapper.UserMapper;
-import java.util.Collection;
-import java.util.Collections;
+import com.mybatis.crud.demo.mapper.user.UserMapper;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,15 +22,17 @@ public class UserService {
     return userMapper.findById(userId);
   }
 
-  public int createUser(User user) {
-    return userMapper.save(user);
+  public void createUser(User user) {
+    userMapper.save(user);
   }
 
-  public int updateUser(User user) {
-    User findUser = userMapper.findById(user.getId());
+  public int updateUser(Long userId ,User user) {
+    User findUser = userMapper.findById(userId);
     if (findUser == null) {
       return -1;
     }
-    return userMapper.update(user);
+    findUser.setUsername(user.getUsername());
+    findUser.setEmail(user.getEmail());
+    return userMapper.update(findUser);
   }
 }

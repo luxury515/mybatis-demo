@@ -20,17 +20,15 @@ public class UserController {
 
   private final UserService userService;
 
-  @PostMapping("/user/find")
+  @GetMapping("/user/find")
   public ResponseEntity<List<User>> getUserAll() {
     return ResponseEntity.ok(userService.getUserAll());
   }
 
   @PostMapping("/user/create")
   public ResponseEntity<String> inserUser(@RequestBody User user) {
-    int resultCode = userService.createUser(user);
-    if (resultCode != 1) {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+    userService.createUser(user);
+
     return new ResponseEntity<>("insert success!", HttpStatus.OK);
   }
 
@@ -41,8 +39,8 @@ public class UserController {
   }
 
   @PostMapping("/user/update/{id}")
-  public ResponseEntity<String> getUser(@RequestBody User user) {
-    int resultCode = userService.updateUser(user);
+  public ResponseEntity<String> getUser(@PathVariable Long id,@RequestBody User user) {
+    int resultCode = userService.updateUser(id,user);
     if (resultCode != 1) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
